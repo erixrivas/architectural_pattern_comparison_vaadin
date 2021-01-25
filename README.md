@@ -1,0 +1,1 @@
+# architectural_pattern_comparison_vaadin
