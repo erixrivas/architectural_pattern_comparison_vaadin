@@ -15,7 +15,7 @@ public class Character {
 	private String[] episode;
 	private String url;
 	private String created;
-	
+	private Integer age;
 	
 	
 	
@@ -395,5 +395,13 @@ public class Character {
 		}
 		
 		
-	} 
+	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
 }

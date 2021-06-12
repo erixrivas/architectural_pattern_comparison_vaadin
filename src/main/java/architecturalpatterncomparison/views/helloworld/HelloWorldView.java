@@ -1,5 +1,6 @@
 package architecturalpatterncomparison.views.helloworld;
 
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.notification.Notification;
@@ -19,16 +20,28 @@ public class HelloWorldView extends HorizontalLayout {
 
     private TextField name;
     private Button sayHello;
+    private HelloWorld helloWorld;
 
     public HelloWorldView() {
         setId("hello-world-view");
         name = new TextField("Your name");
         sayHello = new Button("Say hello");
+
+        helloWorld= new HelloWorld();
+
+      //  String text=helloWorld.getContent().getText();
+  /*      helloWorld.getContent().setText("OtherText");
+        String text2=helloWorld.getContent().getText();
+*/
+
+
+        sayHello.addThemeVariants();
         add(name, sayHello);
         setVerticalComponentAlignment(Alignment.END, name, sayHello);
         sayHello.addClickListener(e -> {
             Notification.show("Hello " + name.getValue());
         });
+
     }
 
 }
