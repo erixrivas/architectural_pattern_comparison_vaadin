@@ -2,9 +2,12 @@ package architecturalpatterncomparison.views.mvp;
 
 import architecturalpatterncomparison.model.entities.Character;
 import architecturalpatterncomparison.views.main.MainView;
+
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
@@ -27,6 +30,7 @@ public class CharactersViewMPV extends VerticalLayout implements  CharactersCont
     TextField type=new TextField("type");
     TextField gender= new TextField("gender");
     Image image = new Image();
+    Button back = new Button(VaadinIcon.BACKWARDS.create());
 
     Binder<Character> binder = new Binder<Character>();
     public CharactersViewMPV(){
