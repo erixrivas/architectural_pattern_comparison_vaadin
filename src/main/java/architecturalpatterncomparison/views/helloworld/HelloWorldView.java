@@ -20,14 +20,14 @@ public class HelloWorldView extends HorizontalLayout {
 
     private TextField name;
     private Button sayHello;
-    private HelloWorld helloWorld;
+    //private HelloWorld helloWorld;
 
     public HelloWorldView() {
         setId("hello-world-view");
         name = new TextField("Your name");
         sayHello = new Button("Say hello");
 
-        helloWorld= new HelloWorld();
+    //    helloWorld= new HelloWorld();
 
       //  String text=helloWorld.getContent().getText();
   /*      helloWorld.getContent().setText("OtherText");
