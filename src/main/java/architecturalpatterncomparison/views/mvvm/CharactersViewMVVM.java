@@ -8,9 +8,7 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.Binder;
-import com.vaadin.flow.data.converter.StringToIntegerConverter;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
@@ -23,7 +21,7 @@ public class CharactersViewMVVM extends VerticalLayout {
 
 
     TextField characterFilter = new TextField("Filter By Name");
-    Grid<Character> grid = new Grid<>(Character.class);
+    Grid<Character> grid = new Grid<>();
 
     Div characterDetail = new Div();
     TextField name= new TextField("name");
@@ -31,11 +29,9 @@ public class CharactersViewMVVM extends VerticalLayout {
     TextField species=new TextField("species");
     TextField type=new TextField("type");
     TextField gender= new TextField("gender");
-    TextField age= new TextField("age");
     Image image = new Image();
 
-    Binder<Character> binder = new Binder<>();
-   // BeanValidationBinder<Character> binderPrueba = new BeanValidationBinder<>(Character.class);
+    Binder<Character> binder = new Binder<Character>();
     CharactersViewModel charactersViewModel= new CharactersViewModel();
     public CharactersViewMVVM(){
         super();
@@ -45,11 +41,9 @@ public class CharactersViewMVVM extends VerticalLayout {
         add(characterFilter,grid,characterDetail);
         charactersViewModel=new CharactersViewModel();
 
-
         characterFilter.addValueChangeListener(e->charactersViewModel.onFilterTextChange(e,this));
         grid.addSelectionListener(e->charactersViewModel.showCharacterDetail(e,this));
         grid.setItems(charactersViewModel.getCharacters());
-
         setHeightFull();
     }
 
@@ -63,7 +57,6 @@ public class CharactersViewMVVM extends VerticalLayout {
         binder.forField(species).bind(Character::getSpecies,null);
         binder.forField(type).bind(Character::getType,null);
         binder.forField(gender).bind(Character::getGender,null);
-
 
     }
 
